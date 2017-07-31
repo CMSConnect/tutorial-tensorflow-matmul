@@ -9,7 +9,7 @@ In this tutorial, we see how to submit a [tensorflow](https://www.tensorflow.org
 
 Let us utilize the `tutorial` command. In the command prompt, type
 
-	 $ tutorial tf-matmul  # Copies input and script files to the directory tutorial-tf-matmul
+	 $ tutorial tf-matmul  (Copies input and script files to the directory tutorial-tf-matmul)
  
 This will create a directory `tutorial-tf-matmul` with the following files
 
@@ -20,12 +20,12 @@ This will create a directory `tutorial-tf-matmul` with the following files
 
 ## Matrix multiplication with tensorflow
 
-The python script `tf_matmul.py` uses tensorflow to perform the matrix multiplication of a `2x2` matrix. Indeed, this is not
-the best use case of tensorflow. For our purpose of showing how to submit the tensorflow job on the OSG this example is just fine. 
+The Python program `tf_matmul.py` uses tensorflow to perform the matrix multiplication of a `2x2` matrix. Indeed, this is not
+the best use case of tensorflow. This example is just fine to see how to submit the tensorflow job on the OSG. 
 
 ## Executing the script inside the singularity container
 
-Before running this job on the OSG, let us see how to execute the tensorflow example on the submit host. Executing the python program in the shell prompt, 
+Before running this job on the OSG, let us see how to execute the tensorflow example on the submit host. Execute the Python program in the shell prompt
 
     $ python tf_matmul.py 
 
@@ -34,9 +34,9 @@ Before running this job on the OSG, let us see how to execute the tensorflow exa
         import tensorflow as tf
     ImportError: No module named tensorflow
 
-throws the error message that tensorflow is not available.  We need to execute the program inside the tensorflow 
-container. Singularity offers couple of ways to run an image. One of them is to execute a shell inside the 
-image (See [Singularity documentation for more details](http://singularity.lbl.gov/user-guide)). 
+The error message says that tensorflow is not available. 
+
+We need to execute the program inside the tensorflow container. Singularity offers couple of ways to run an image. One of them is to execute a shell inside the image (See [Singularity documentation for more details](http://singularity.lbl.gov/user-guide)). 
 
     $ singularity shell /cvmfs/singularity.opensciencegrid.org/opensciencegrid/tensorflow:latest
 
@@ -52,13 +52,15 @@ Now we run the program inside the container
      [ -4.76837158e-07   1.00000024e+00]]
     ===============================
 
-This is a `2x2` matrix multiplication and should be done in a minute or two.  Now let us see how to run this python program on the remote machine as a singularity containter job. 
+This is a `2x2` matrix multiplication and should be done in a minute or two. 
+
+Now let us see how to run this Python program on the remote machine as a singularity containter job. 
 
 Note: You may see the warning 
 
      2017-07-16 12:31:44.841458: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
 
-which is related to tensorflow installation. 
+that is related to the optimization of tensorflow installation on specific architecture. 
 
 ## Job execution and submission files
 
@@ -79,7 +81,7 @@ Let us take a look at the  condor job description file `tf_matmul.submit`:
     Universe = vanilla
 
     # These are good base requirements for your jobs on OSG. It is specific on OS and
-    # OS version, core cound and memory, and wants to use the software modules. 
+    # OS version, cores, and memory.
     Requirements = HAS_SINGULARITY == True
     request_cpus = 1
     request_memory = 2 GB
@@ -88,7 +90,7 @@ Let us take a look at the  condor job description file `tf_matmul.submit`:
     # Singularity settings
     +SingularityImage = "/cvmfs/singularity.opensciencegrid.org/opensciencegrid/tensorflow:latest"
 
-    # EXECUTABLE is the program your job will run It's often useful
+    # EXECUTABLE is the program that your job will run. It's often useful
     # to create a shell script to "wrap" your actual work.
     Executable = tf-matmul-wrapper.sh
     Arguments =
@@ -136,7 +138,6 @@ The present job should be finished quickly (less than an hour). You can check th
 	$ condor_q username  # The status of the job is printed on the screen. Here, username is your login name.
 
 The output of the job is available in the file `tf_matmul.output`. 
-
 
 ## Running on GPUs
 
