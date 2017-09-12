@@ -3,7 +3,7 @@ Universe = vanilla
 
 # These are good base requirements for your jobs on OSG. It is specific on OS and
 # OS version, core cound and memory, and wants to use the software modules. 
-Requirements = HAS_SINGULARITY == True
+Requirements = HAS_SINGULARITY == True && CUDACapability >= 3
 request_cpus = 1
 request_gpus = 1
 request_memory = 2 GB
