@@ -1,4 +1,4 @@
-[title]: - "Tensorflow matrix multiplication"
+[title]: - "Tensorflow - A simple matrix multiplication"
 [TOC] 
 
 ## Overview
