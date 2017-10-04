@@ -12,7 +12,6 @@ Let us utilize the `tutorial` command. In the command prompt, type
 	 $ tutorial tf-matmul  (Copies input and script files to the directory tutorial-tf-matmul)
  
 This will create a directory `tutorial-tf-matmul` with the following files
-
    
     tf_matmul.py            (Python program to multiply two matrices using tensorflow package)
     tf_matmul.submit        (HTCondor Job description file)
