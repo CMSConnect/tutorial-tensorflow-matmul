@@ -151,6 +151,5 @@ The submit file for a GPU jobs is `tf_matmul_gpu.submit` The only difference is
     ...
     +SingularityImage = "/cvmfs/singularity.opensciencegrid.org/opensciencegrid/tensorflow-gpu:latest"
 
-
 ## Getting Help
 For assistance or questions, please email the OSG User Support team  at [user-support@opensciencegrid.org](mailto:user-support@opensciencegrid.org) or visit the [help desk and community forums](http://support.opensciencegrid.org).
