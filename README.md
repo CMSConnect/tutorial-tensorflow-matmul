@@ -122,6 +122,7 @@ The wrapper script `tf-matmul-wrapper.sh` is pretty normal one which executes th
     #!/bin/bash
     python tf_matmul.py > tf_matmul.output
 
+
 ## Job submmision 
 
 We submit the job using `condor_submit` command as follows
