@@ -138,7 +138,7 @@ The output of the job is available in the file `tf_matmul.output`.
 ## Running on GPUs
 
 You can also steer the job to run on GPUs, but note that the number of GPUs available on 
-OSG is limited. Even though the job will execute faster, it might sit in the queue waiting
+CMS is still limited. Even though the job will execute faster, it might sit in the queue waiting
 longer than a CPU-only job.
 
 The submit file for a GPU jobs is `tf_matmul_gpu.submit` The only difference is
