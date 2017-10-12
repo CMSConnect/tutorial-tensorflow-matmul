@@ -78,14 +78,14 @@ In addition, we also provide the full path of the image via the keyword `+Singul
     +SingularityImage = "/cvmfs/singularity.opensciencegrid.org/opensciencegrid/tensorflow:latest"
 
 The image is distributed to the remote worker machines through `cvmfs`. Although there are multiple ways to aquire the 
-image file for a job on the OSG machine, the image distributed through `cvmfs` is preferred. 
+image file for a job on the worker node machine, the image distributed through `cvmfs` is preferred. 
  
 Let us take a look at the  condor job description file `tf_matmul.submit`: 
 
     # The UNIVERSE defines an execution environment. You will almost always use VANILLA.
     Universe = vanilla
 
-    # These are good base requirements for your jobs on OSG. It is specific on OS and
+    # These are good base requirements for your jobs. It is specific on OS and
     # OS version, cores, and memory.
     Requirements = HAS_SINGULARITY == True
     request_cpus = 1
