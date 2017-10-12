@@ -2,6 +2,7 @@
 [TOC] 
 
 ## Overview
+This is an example slightly adapted from https://github.com/OSGConnect/tutorial-tensorflow-matmul
 
 In this tutorial, we see how to submit a [tensorflow](https://www.tensorflow.org/) job through [Singularity containers](https://support.opensciencegrid.org/solution/articles/12000024676-singularity-containers).  We currently offer CPU and GPU  containers for tensorflow (both based on Ubuntu). Here, we focus on CPU container.  
 
