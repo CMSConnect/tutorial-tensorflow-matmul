@@ -1,3 +1,2 @@
 #!/bin/bash
-
-python tf_matmul.py > tf_matmul.output
+python3 tf_matmul.py
