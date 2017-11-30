@@ -1,18 +1,12 @@
 Universe = vanilla
 
 request_cpus = 1
-request_gpus = 1
 request_memory = 1 GB
-request_disk = 1 GB
+request_disk = 100 Mb
 
-# GPU clusters
-+DESIRED_Sites="T2_US_UCSD,T3_US_OSG"
-
-# Singularity and CUDA settings
-Requirements = HAS_SINGULARITY == True && CUDACapability >= 3
-+SingularityImage = "/cvmfs/singularity.opensciencegrid.org/opensciencegrid/tensorflow-gpu:latest"
-+SingularityBindGPULibs = True
-+SingularityBindCVMFS = True
+# Singularity settings
+Requirements = HAS_SINGULARITY == True
++SingularityImage = "/cvmfs/singularity.opensciencegrid.org/opensciencegrid/tensorflow:latest"
 
 Executable = tf_matmul_wrapper.sh
 
@@ -25,4 +19,6 @@ Output = log/job.$(Cluster).$(Process).output
 # job's status, success, and resource consumption.
 Log = log/job.$(Cluster).log
 
+# QUEUE is the "start button" - it launches any jobs that have been
+# specified thus far.
 Queue 1
