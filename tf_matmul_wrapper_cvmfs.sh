@@ -13,8 +13,8 @@ fi
 # Setup CMSSW release with tensorflow support
 export VO_CMS_SW_DIR=/cvmfs/cms.cern.ch
 source $VO_CMS_SW_DIR/cmsset_default.sh
-release=CMSSW_9_4_0
-export SCRAM_ARCH=slc6_amd64_gcc630
+release=CMSSW_10_6_13
+export SCRAM_ARCH=slc7_amd64_gcc820
 scramv1 project -f $release
 cd $release
 eval $(scramv1 runtime -sh)
