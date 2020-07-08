@@ -5,17 +5,18 @@ request_gpus = 1
 request_memory = 1 GB
 request_disk = 1 GB
 
-# GPU clusters
-+DESIRED_Sites="T2_US_UCSD,T3_US_OSG"
+# GPU clusters, select specific sites:
+#+DESIRED_Sites="T2_US_UCSD,T3_US_OSG,T2_US_Vanderbilt,T3_US_NotreDame"
 
 # Singularity and CUDA settings
 Requirements = HAS_SINGULARITY == True && CUDACapability >= 3
-+SingularityImage = "/cvmfs/singularity.opensciencegrid.org/opensciencegrid/tensorflow-gpu:latest"
-+SingularityBindGPULibs = True
-+SingularityBindCVMFS = True
+
+# OSG image currently using TF 2.2.0
+#+SingularityImage = "/cvmfs/singularity.opensciencegrid.org/opensciencegrid/tensorflow-gpu:latest"
+# Using TF 1.12 instead:
++SingularityImage = "/cvmfs/singularity.opensciencegrid.org/notredamedulac/el7-tensorflow-keras-gpu:latest"
 
 Executable = tf_matmul_wrapper.sh
-
 transfer_input_files = tf_matmul.py
 
 Error = log/job.$(Cluster).$(Process).error
