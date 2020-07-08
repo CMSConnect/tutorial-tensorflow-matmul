@@ -1,5 +1,7 @@
 Universe = vanilla
 
++REQUEST_OS = "rhel7"
+
 request_cpus = 1
 request_memory = 1 GB
 request_disk = 200 Mb
