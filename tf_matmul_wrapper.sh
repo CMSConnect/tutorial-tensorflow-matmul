@@ -13,12 +13,12 @@ nvidia-smi 2>/dev/null
 echo
 
 # Check for tensorflow module
-python -c 'import tensorflow' > /dev/null 2>&1
+python3 -c 'import tensorflow' > /dev/null 2>&1
 res=$?
 if [ $res -ne 0 ]; then
   echo "Could not find tensorflow. Exit code: $res"
   exit $res
 fi
 
-python tf_matmul.py
+python3 tf_matmul.py
 exit $?
